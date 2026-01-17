@@ -101,6 +101,9 @@ class DataTransformation:
         drop_col = self._schema_config['drop_columns']
         if drop_col in df.columns:
             df = df.drop(drop_col, axis=1)
+        if 'id' in df.columns:
+            df = df.drop('id', axis=1)
+        
         return df
 
     def initiate_data_transformation(self) -> DataTransformationArtifact:
